@@ -3,54 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Slot Machine Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="slot-machine">
-        <h1>Slot Machine</h1>
-        <div id="reels">
-            <span id="reel1"></span>
-            <span id="reel2"></span>
-            <span id="reel3"></span>
-            <span id="reel4"></span>
-            <span id="reel5"></span>
+        <h1>Slot Machine Game</h1>
+        
+        <!-- Reels Display -->
+        <div class="reels">
+            <div class="reel" id="reel1"></div>
+            <div class="reel" id="reel2"></div>
+            <div class="reel" id="reel3"></div>
+            <div class="reel" id="reel4"></div>
+            <div class="reel" id="reel5"></div>
+            <div class="reel" id="reel6"></div>
+            <div class="reel" id="reel7"></div>
+            <div class="reel" id="reel8"></div>
         </div>
+
+        <!-- User Controls -->
         <div class="controls">
-            <label for="bet">Bet:</label>
-            <input type="number" id="bet" min="1" max="100" value="1">
+            <label for="bet">Bet (cents): </label>
+            <input type="number" id="bet" min="1" max="100">
             <button onclick="spinReels()">Spin</button>
         </div>
-        <div id="payout"></div>
-        <div id="bank">Bank: <span id="bankAmount">100</span> cents</div>
-        <div id="payTable">
-            <h2>Pay Table</h2>
-            <p>$$: 20 cents</p>
-            <p>$?: 10 cents</p>
-            <p>$7: 15 cents</p>
-            <p>??: 25 cents</p>
-            <p>?7: 5 cents</p>
-            <p>77: 30 cents</p>
-            <p>$$$: 100 cents</p>
-            <p>???: 60 cents</p>
-            <p>777: 150 cents</p>
-            <p>$$$$: 200 cents</p>
-            <p>$$$$?: 180 cents</p>
-            <p>$$$$7: 220 cents</p>
-            <p>$$$$?7: 250 cents</p>
-            <p>????: 300 cents</p>
-            <p>???7: 270 cents</p>
-            <p>??77: 320 cents</p>
-            <p>7777: 350 cents</p>
-            <p>$$$$$: 500 cents</p>
-            <p>$$$$$?: 600 cents</p>
-            <p>$$$$$7: 700 cents</p>
-            <p>$$$$$?7: 800 cents</p>
-            <p>?????: 900 cents</p>
-            <p>?????7: 1000 cents</p>
-            <p>77777: 1200 cents</p>
+
+        <!-- Display Bank Amount and Payout -->
+        <div class="display">
+            <div>Bank Amount: <span id="bankAmount">100</span> cents</div>
+            <div id="payout">Payout: 0 cents</div>
         </div>
+
+        <!-- Paytable -->
+        <div class="paytable">
+            <h2>Paytable</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Combination</th>
+                        <th>Payout (cents)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>$$</td><td>20</td></tr>
+                    <tr><td>$?</td><td>10</td></tr>
+                    <tr><td>$7</td><td>15</td></tr>
+                    <tr><td>??</td><td>25</td></tr>
+                    <tr><td>?7</td><td>5</td></tr>
+                    <tr><td>77</td><td>30</td></tr>
+                    <tr><td>$$$</td><td>100</td></tr>
+                    <tr><td>???</td><td>60</td></tr>
+                    <tr><td>777</td><td>150</td></tr>
+                    <tr><td>$$$$</td><td>200</td></tr>
+                    <tr><td>$$$?</td><td>180</td></tr>
+                    <tr><td>$$$7</td><td>220</td></tr>
+                    <tr><td>$$$?7</td><td>250</td></tr>
+                    <tr><td>????</td><td>300</td></tr>
+                    <tr><td>???7</td><td>270</td></tr>
+                    <tr><td>??77</td><td>320</td></tr>
+                    <tr><td>7777</td><td>350</td></tr>
+                    <tr><td>$$$$$</td><td>500</td></tr>
+                    <tr><td>$$$$?$?7</td><td>600</td></tr>
+                    <tr><td>$$$$$$</td><td>700</td></tr>
+                    <tr><td>$$$$$$7</td><td>800</td></tr>
+                    <tr><td>$$$$$$?7</td><td>900</td></tr>
+                    <tr><td>77777</td><td>1200</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Optional: Add a section for free spins information -->
+        <div id="freeSpins" class="display"></div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
