@@ -3,36 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine Game</title>
+    <title>Pumpkin Slot Machine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="slot-machine">
-        <h1>Slot Machine Game</h1>
-        
+        <h1>Pumpkin Slot Machine</h1>
+
         <!-- Reels Display -->
         <div class="reels">
-            <div class="reel" id="reel1"></div>
-            <div class="reel" id="reel2"></div>
-            <div class="reel" id="reel3"></div>
-            <div class="reel" id="reel4"></div>
-            <div class="reel" id="reel5"></div>
-            <div class="reel" id="reel6"></div>
-            <div class="reel" id="reel7"></div>
-            <div class="reel" id="reel8"></div>
+            <div class="reel">
+                <div id="reel1"></div>
+                <div id="reel2"></div>
+                <div id="reel3"></div>
+            </div>
+            <div class="reel">
+                <div id="reel4"></div>
+                <div id="reel5"></div>
+                <div id="reel6"></div>
+            </div>
+            <div class="reel">
+                <div id="reel7"></div>
+                <div id="reel8"></div>
+                <div id="reel9"></div>
+            </div>
+            <div class="reel">
+                <div id="reel10"></div>
+                <div id="reel11"></div>
+                <div id="reel12"></div>
+            </div>
+            <div class="reel">
+                <div id="reel13"></div>
+                <div id="reel14"></div>
+                <div id="reel15"></div>
+            </div>
         </div>
 
         <!-- User Controls -->
         <div class="controls">
             <label for="bet">Bet (cents): </label>
             <input type="number" id="bet" min="1" max="100">
-            <button onclick="spinReels()">Spin</button>
+            <div class="questions">
+                <button onclick="spinReels('Q1')">Spin - Pumpkin Patch</button>
+                <button onclick="spinReels('Q2')">Spin - Watering Time</button>
+                <button onclick="spinReels('Q3')">Spin - Harvest Day</button>
+                <button onclick="spinReels('Q4')">Spin - Seed Planting</button>
+                <button onclick="spinReels('Q5')">Spin - Fertilizer Boost</button>
+                <button onclick="spinReels('Q6')">Spin - Sunlight Surge</button>
+            </div>
         </div>
 
         <!-- Display Bank Amount and Payout -->
         <div class="display">
             <div>Bank Amount: <span id="bankAmount">100</span> cents</div>
             <div id="payout">Payout: 0 cents</div>
+            <div id="freeSpins">Free Spins: 0</div> <!-- Free Spins Display -->
         </div>
 
         <!-- Paytable -->
@@ -46,35 +71,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>$$</td><td>20</td></tr>
-                    <tr><td>$?</td><td>10</td></tr>
-                    <tr><td>$7</td><td>15</td></tr>
-                    <tr><td>??</td><td>25</td></tr>
-                    <tr><td>?7</td><td>5</td></tr>
-                    <tr><td>77</td><td>30</td></tr>
-                    <tr><td>$$$</td><td>100</td></tr>
-                    <tr><td>???</td><td>60</td></tr>
-                    <tr><td>777</td><td>150</td></tr>
-                    <tr><td>$$$$</td><td>200</td></tr>
-                    <tr><td>$$$?</td><td>180</td></tr>
-                    <tr><td>$$$7</td><td>220</td></tr>
-                    <tr><td>$$$?7</td><td>250</td></tr>
-                    <tr><td>????</td><td>300</td></tr>
-                    <tr><td>???7</td><td>270</td></tr>
-                    <tr><td>??77</td><td>320</td></tr>
-                    <tr><td>7777</td><td>350</td></tr>
-                    <tr><td>$$$$$</td><td>500</td></tr>
-                    <tr><td>$$$$?$?7</td><td>600</td></tr>
-                    <tr><td>$$$$$$</td><td>700</td></tr>
-                    <tr><td>$$$$$$7</td><td>800</td></tr>
-                    <tr><td>$$$$$$?7</td><td>900</td></tr>
-                    <tr><td>77777</td><td>1200</td></tr>
+                    <tr><td>🎃🎃🎃</td><td>100</td></tr>
+                    <tr><td>🌱🌱🌱</td><td>60</td></tr>
+                    <tr><td>🌻🌻🌻</td><td>150</td></tr>
+                    <tr><td>🎃🎃🎃🎃</td><td>200</td></tr>
+                    <tr><td>🌱🌱🌱🌻</td><td>300</td></tr>
+                    <tr><td>🌻🌻🌻🌻</td><td>320</td></tr>
+                    <tr><td>🎃🎃🎃🎃🎃</td><td>350</td></tr>
+                    <tr><td>🎃🎃🎃🎃🎃🎃</td><td>500</td></tr>
+                    <tr><td>🎃🎃🎃🎃🎃🎃🎃</td><td>600</td></tr>
                 </tbody>
             </table>
         </div>
-
-        <!-- Optional: Add a section for free spins information -->
-        <div id="freeSpins" class="display"></div>
     </div>
 
     <script src="script.js"></script>
