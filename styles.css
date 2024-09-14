@@ -1,63 +1,108 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
 }
 
+/* Container for the slot machine */
 .slot-machine {
-    text-align: center;
-    background-color: #fff;
-    border: 2px solid #000;
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #4c4c4c, #333);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-    font-size: 24px;
+/* Reels container */
+.reels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-#reels {
-    margin-bottom: 20px;
+/* Individual reel */
+.reel {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #444;
+    border: 2px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-#reels span {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border: 2px solid #000;
-    margin: 0 10px;
-    font-size: 32px;
-    text-transform: uppercase;
-    color: white; /* Text color */
-}
-
+/* Button Styles */
 button {
+    font-size: 1.2em;
     padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px 0;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.controls {
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Input Styles */
+input[type="number"] {
+    font-size: 1em;
+    padding: 10px;
+    width: 100px;
+    border: 2px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-#bank {
-    font-size: 20px;
+/* Bank and Payout Display */
+.display {
+    font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-#payTable {
-    font-size: 16px;
-    margin-top: 20px;
+.display span {
+    font-weight: bold;
 }
 
-#payTable h2 {
-    font-size: 18px;
+/* Paytable */
+.paytable {
+    margin: 20px 0;
+}
+
+.paytable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.paytable th, .paytable td {
+    border: 1px solid #666;
+    padding: 10px;
+    text-align: center;
+}
+
+.paytable th {
+    background-color: #555;
+}
+
+.paytable td {
+    background-color: #444;
+}
+
+/* Background color for jackpots */
+.jackpot-background {
+    background-color: yellow !important;
 }
