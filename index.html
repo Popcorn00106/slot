@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="slot-machine">
+        <h1>Slot Machine</h1>
         <div id="reels">
             <span id="reel1"></span>
             <span id="reel2"></span>
@@ -15,8 +16,17 @@
             <span id="reel4"></span>
             <span id="reel5"></span>
         </div>
-        <button onclick="spinReels()">Spin</button>
+        <div class="controls">
+            <label for="bet">Bet:</label>
+            <input type="number" id="bet" min="1" max="100" value="1">
+            <button onclick="spinReels()">Spin</button>
+        </div>
         <div id="payout"></div>
+        <div id="bank">Bank: <span id="bankAmount">100</span> cents</div>
+        <div id="payTable">
+            <h2>Pay Table</h2>
+            <p>All Symbols: 10 cents</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
