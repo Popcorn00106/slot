@@ -1,39 +1,27 @@
 using System;
-using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-public class SlotMachineGame
+public class SlotMachineClient
 {
-    private static readonly string[] Symbols = { "🎃", "🌱", "🌻" };
-    
-    public static void Main()
+    private static readonly HttpClient client = new HttpClient();
+
+    public static async Task Main()
     {
+        Console.WriteLine("Welcome to the Pumpkin Slot Machine!");
+        
         // Example of spinning the reels
-        string[,] reels = SpinReels();
-        
-        // Print results (for debugging purposes)
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                Console.Write(reels[i, j] + " ");
-            }
-            Console.WriteLine();
-        }
+        await SpinReelsAsync();
     }
-    
-    private static string[,] SpinReels()
+
+    private static async Task SpinReelsAsync()
     {
-        Random rand = new Random();
-        string[,] reels = new string[5, 3];
+        Console.Write("Enter your bet (cents): ");
+        var bet = Console.ReadLine();
+
+        // Call the web server to handle the spin
+        var response = await client.GetStringAsync($"https://your-web-server.com/api/spin?bet={bet}");
         
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                reels[i, j] = Symbols[rand.Next(Symbols.Length)];
-            }
-        }
-        
-        return reels;
+        Console.WriteLine($"Server Response: {response}");
     }
 }
