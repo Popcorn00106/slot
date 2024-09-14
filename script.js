@@ -11,7 +11,29 @@ const payouts = {
     "77": 30,
     "$$$": 100,
     "???": 60,
-    "777": 150
+    "777": 150,
+    "$$$$": 200,
+    "$$$?": 180,
+    "$$$7": 220,
+    "$$$?7": 250,
+    "????": 300,
+    "???7": 270,
+    "??77": 320,
+    "7777": 350,
+    "$$$$$": 500,
+    "$$$$$?": 600,
+    "$$$$$7": 700,
+    "$$$$$?7": 800,
+    "?????": 900,
+    "?????7": 1000,
+    "77777": 1200
+};
+
+// Define colors for each symbol
+const colors = {
+    "$": "gold",
+    "?": "lightblue",
+    "7": "red"
 };
 
 function spinReels() {
@@ -35,33 +57,53 @@ function spinReels() {
     }
 
     // Update the reels display
-    document.getElementById('reel1').textContent = result[0];
-    document.getElementById('reel2').textContent = result[1];
-    document.getElementById('reel3').textContent = result[2];
-    document.getElementById('reel4').textContent = result[3];
-    document.getElementById('reel5').textContent = result[4];
+    for (let i = 0; i < 5; i++) {
+        let reel = document.getElementById(`reel${i + 1}`);
+        reel.textContent = result[i];
+        reel.style.backgroundColor = colors[result[i]];
+    }
 
     // Calculate payout and update bank
     let payout = calculatePayout(result);
     bankAmount += payout - bet;
     document.getElementById('bankAmount').textContent = bankAmount;
     document.getElementById('payout').textContent = `Payout: ${payout} cents`;
+
+    // Change background color if jackpot is hit
+    if (payout > 0) {
+        document.body.style.backgroundColor = payout >= 500 ? "yellow" : "#f0f0f0"; // Change color for jackpots
+        setTimeout(() => {
+            document.body.style.backgroundColor = "#f0f0f0"; // Reset color after a few seconds
+        }, 2000);
+    }
 }
 
 function calculatePayout(result) {
     let payout = 0;
 
+    // Check for combinations of 5 symbols
+    let fiveSymbols = result.join('');
+    if (payouts[fiveSymbols]) {
+        return payouts[fiveSymbols];
+    }
+
+    // Check for combinations of 4 symbols
+    let fourSymbols = result.join('');
+    if (payouts[fourSymbols]) {
+        return payouts[fourSymbols];
+    }
+
     // Check for combinations of 3 symbols
     let threeSymbols = result.join('');
     if (payouts[threeSymbols]) {
         payout = payouts[threeSymbols];
-    } else {
-        // Check for combinations of 2 symbols
-        for (let i = 0; i < result.length - 1; i++) {
-            let twoSymbols = result[i] + result[i + 1];
-            if (payouts[twoSymbols]) {
-                payout = Math.max(payout, payouts[twoSymbols]);
-            }
+    }
+
+    // Check for combinations of 2 symbols
+    for (let i = 0; i < result.length - 1; i++) {
+        let twoSymbols = result[i] + result[i + 1];
+        if (payouts[twoSymbols]) {
+            payout = Math.max(payout, payouts[twoSymbols]);
         }
     }
 
