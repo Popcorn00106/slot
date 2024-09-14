@@ -1,5 +1,18 @@
-const symbols = ["C", "L", "O"]; // Cherry, Lemon, Orange
+const symbols = ["$", "?", "7"]; // Dollar, Question Mark, Seven
 let bankAmount = 100;
+
+// Define payouts for combinations
+const payouts = {
+    "$$": 20,
+    "$?": 10,
+    "$7": 15,
+    "??": 25,
+    "?7": 5,
+    "77": 30,
+    "$$$": 100,
+    "???": 60,
+    "777": 150
+};
 
 function spinReels() {
     let result = [];
@@ -36,11 +49,23 @@ function spinReels() {
 }
 
 function calculatePayout(result) {
-    // Example payout calculation: all symbols match
-    if (result.every(symbol => symbol === result[0])) {
-        return 10; // Example payout
+    let payout = 0;
+
+    // Check for combinations of 3 symbols
+    let threeSymbols = result.join('');
+    if (payouts[threeSymbols]) {
+        payout = payouts[threeSymbols];
+    } else {
+        // Check for combinations of 2 symbols
+        for (let i = 0; i < result.length - 1; i++) {
+            let twoSymbols = result[i] + result[i + 1];
+            if (payouts[twoSymbols]) {
+                payout = Math.max(payout, payouts[twoSymbols]);
+            }
+        }
     }
-    return 0;
+
+    return payout;
 }
 
 // Ensure the script runs after the DOM is fully loaded
