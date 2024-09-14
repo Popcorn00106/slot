@@ -1,86 +1,63 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0e4d7; /* Pumpkin-like background color */
+    color: #6f4f28; /* Dark pumpkin color for text */
 }
 
-/* Container for the slot machine */
 .slot-machine {
-    width: 80%;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background: linear-gradient(to right, #4c4c4c, #333);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Reels container */
-.reels {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-/* Individual reel */
-.reel {
-    font-size: 2em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #444;
-    border: 2px solid #666;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Button Styles */
-button {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Input Styles */
-input[type="number"] {
-    font-size: 1em;
-    padding: 10px;
-    width: 100px;
-    border: 2px solid #666;
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
     text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff5e1; /* Light pumpkin color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-/* Bank and Payout Display */
+.reel {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    border: 2px solid #ff8c00; /* Pumpkin orange border */
+    padding: 10px;
+    background-color: #fff;
+}
+
+.reel div {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.questions button {
+    background-color: #ff8c00; /* Pumpkin orange */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.questions button:hover {
+    background-color: #e07b00; /* Darker orange for hover effect */
+}
+
 .display {
-    font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-.display span {
-    font-weight: bold;
-}
-
-/* Paytable */
 .paytable {
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .paytable table {
@@ -89,20 +66,23 @@ input[type="number"] {
 }
 
 .paytable th, .paytable td {
-    border: 1px solid #666;
-    padding: 10px;
-    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
 .paytable th {
-    background-color: #555;
+    background-color: #ff8c00;
+    color: white;
 }
 
 .paytable td {
-    background-color: #444;
+    background-color: #f9f9f9;
 }
 
-/* Background color for jackpots */
-.jackpot-background {
-    background-color: yellow !important;
+.paytable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.paytable tr:hover {
+    background-color: #ddd;
 }
