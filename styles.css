@@ -5,10 +5,21 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #f0f0f0;
 }
 
 .slot-machine {
     text-align: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 #reels {
@@ -17,20 +28,35 @@ body {
 
 #reels span {
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border: 1px solid #000;
-    margin: 0 5px;
-    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border: 2px solid #000;
+    margin: 0 10px;
+    font-size: 32px;
+    text-transform: uppercase;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
+    margin: 10px 0;
 }
 
-#payout {
-    margin-top: 20px;
+.controls {
+    margin-bottom: 20px;
+}
+
+#bank {
     font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#payTable {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#payTable h2 {
+    font-size: 18px;
 }
